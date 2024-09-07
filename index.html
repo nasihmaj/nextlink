@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexlink Security Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+<!-- Top Navigation Bar -->
+<nav class="bg-gray-800 p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Nexlink Dashboard</div>
+    <div class="flex items-center space-x-4">
+        <button class="bg-gray-700 px-4 py-2 rounded">Profile</button>
+        <button class="bg-gray-700 px-4 py-2 rounded">Settings</button>
+        <button class="bg-red-500 px-4 py-2 rounded">Notifications</button>
+    </div>
+</nav>
+
+<!-- Dashboard Container -->
+<div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-1/5 bg-gray-800 p-6">
+        <ul class="space-y-4">
+            <li><a href="#" class="text-gray-400 hover:text-white">Cameras</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Alarm System</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Access Control</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Sound System</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Home Theater</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Smart Alerts</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="w-4/5 p-6">
+        <!-- Camera Feed Section -->
+        <section>
+            <h2 class="text-3xl font-semibold mb-4">Live Camera Feeds</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Camera Feed Grid using Unsplash images as placeholders -->
+                <div class="bg-gray-700 h-48 rounded-lg flex items-center justify-center">
+                    <img src="https://source.unsplash.com/random/400x300?camera" alt="Camera 1" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-gray-700 h-48 rounded-lg flex items-center justify-center">
+                    <img src="https://source.unsplash.com/random/400x300?security" alt="Camera 2" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-gray-700 h-48 rounded-lg flex items-center justify-center">
+                    <img src="https://source.unsplash.com/random/400x300?cctv" alt="Camera 3" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="bg-gray-700 h-48 rounded-lg flex items-center justify-center">
+                    <img src="https://source.unsplash.com/random/400x300?night-vision" alt="Camera 4" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Alarm System Status -->
+        <section class="mt-8">
+            <h2 class="text-3xl font-semibold mb-4">Alarm System</h2>
+            <div class="bg-gray-700 p-6 rounded-lg">
+                <p class="text-xl">Status: <span id="alarm-status" class="text-red-500">Disarmed</span></p>
+                <button id="toggle-alarm" class="bg-green-500 px-4 py-2 rounded mt-4">Arm Alarm</button>
+            </div>
+        </section>
+
+        <!-- Access Control Section -->
+        <section class="mt-8">
+            <h2 class="text-3xl font-semibold mb-4">Access Control</h2>
+            <div class="bg-gray-700 p-6 rounded-lg">
+                <p class="text-xl">Latest Entry: John Doe - 10:45 AM</p>
+                <p class="text-xl">Total Entries Today: 5</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 p-4 text-center">
+    Nexlink Security Solutions &copy; 2024
+</footer>
+
+<!-- JavaScript to control alarm system status -->
+<script>
+    const alarmStatus = document.getElementById('alarm-status');
+    const toggleAlarmButton = document.getElementById('toggle-alarm');
+
+    toggleAlarmButton.addEventListener('click', () => {
+        if (alarmStatus.textContent === 'Disarmed') {
+            alarmStatus.textContent = 'Armed';
+            alarmStatus.classList.remove('text-red-500');
+            alarmStatus.classList.add('text-green-500');
+            toggleAlarmButton.textContent = 'Disarm Alarm';
+        } else {
+            alarmStatus.textContent = 'Disarmed';
+            alarmStatus.classList.remove('text-green-500');
+            alarmStatus.classList.add('text-red-500');
+            toggleAlarmButton.textContent = 'Arm Alarm';
+        }
+    });
+</script>
+</body>
+</html>
